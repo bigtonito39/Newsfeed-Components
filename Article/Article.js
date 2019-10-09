@@ -125,7 +125,7 @@ function componentCreator() {
     //adding a class using setAttribute method
     articlepdatep.setAttribute("class", "date");
     //adding a class using classlist.add method
-    articleSpan.setAttribute("class", "expandButton");
+    articleSpan.classList.add("expandButton");
 
     //here i'm adding the arrow down and arrow up take a look at all of these 
     //https://www.rapidtables.com/code/text/unicode-characters.html to get more characters, always use escape sequence in DOM
@@ -133,12 +133,11 @@ function componentCreator() {
     const open = '\u005E';
     const close = '\u003E';
 
-    const articleDiv = document.querySelector(".article")
 
-
-    articleSpan.addEventListener('click', (e) => {
+    const articleDiv = document.querySelector(".articles")
+    articleSpan.addEventListener('click', () => {
         articleDiv.classList.toggle('article-open');
-
+        articleDiv.classList.toggle('.article-open');
     });
 
     articleDiv.appendChild(articleH2);
@@ -147,11 +146,7 @@ function componentCreator() {
     articleDiv.appendChild(articlep2);
     articleDiv.appendChild(articlep3);
     articleDiv.appendChild(articleSpan);
-    console.log(articleH2);
 
 }
 
-
-
-const articleDiv = document.querySelector(".article")
-console.log(articleDiv)
+componentCreator();
