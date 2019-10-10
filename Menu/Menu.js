@@ -42,11 +42,17 @@ function menuComponents(menuItems) {
 
 
     divMenu.classList.add("menu");
+
     header.appendChild(divMenu);
     divMenu.appendChild(divUl);
     divUl.appendChild(divUli);
 
-    divUli.textContent = menuItems;
+    for (let i = 0; i < menuItems.length; i++) {
+        const iSaved = document.createElement("li");
+        iSaved.setAttribute('href', "index.html")
+        iSaved.textContent = menuItems[i];
+        divUli.appendChild(iSaved);
+    }
 
 
     headerImg.addEventListener("click", () => {
@@ -58,5 +64,4 @@ function menuComponents(menuItems) {
     return divMenu;
 
 }
-
 menuComponents(menuItems)
