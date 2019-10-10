@@ -161,6 +161,9 @@ function componentCreator(title, date, firstParagraph, secondParagraph, thirdPar
 const MainarticleDiv = document.querySelector(".articles")
     //adding new article
 data.push({ title: "Jose Reinoso is a Lambda\'s student", date: "08/05/2019", firstParagraph: "Jose will graduate in 2021", secondParagraph: "So far he knows css, html,javascript", thirdParagraph: "But now he is learning Components" });
+data.push({ title: "Mets", date: "08/05/1969", firstParagraph: "Lets go mets!", secondParagraph: "Lets go mets!", thirdParagraph: "Lets go mets!" });
+
+
 const dataSaved = data.map((data) => {
     MainarticleDiv.appendChild(componentCreator(data["title"], data["date"], data["firstParagraph"], data["secondParagraph"], data["thirdParagraph"]));
 });
