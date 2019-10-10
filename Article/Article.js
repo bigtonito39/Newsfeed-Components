@@ -113,8 +113,9 @@ const data = [{
 
 */
 
-function componentCreator() {
+function componentCreator(title, date, firstParagraph, secondParagraph, thirdParagraph) {
     //creating the elements
+    const articlediv = document.createElement("div")
     const articleH2 = document.createElement("h2");
     const articlepdatep = document.createElement("p");
     const articlep1 = document.createElement("p");
@@ -122,31 +123,43 @@ function componentCreator() {
     const articlep3 = document.createElement("p");
     const articleSpan = document.createElement("span");
 
+
+
+    //addin a class using classlist.add
+    articlediv.classList.add("article");
     //adding a class using setAttribute method
     articlepdatep.setAttribute("class", "date");
     //adding a class using classlist.add method
     articleSpan.classList.add("expandButton");
+    const MainarticleDiv = document.querySelector(".articles")
+    articleH2.textContent = title;
+    articlepdatep.textContent = date;
+    articlep1.textContent = firstParagraph;
+    articlep2.textContent = secondParagraph;
+    articlep3.textContent = thirdParagraph;
+    articleSpan.textContent = "Open this content here!";
+    articleSpan.style.color = "green"
+    articleSpan.style.fontWeight = "bolder"
+    articleSpan.style.fontSize = "1rem"
 
-    //here i'm adding the arrow down and arrow up take a look at all of these 
-    //https://www.rapidtables.com/code/text/unicode-characters.html to get more characters, always use escape sequence in DOM
-
-    const open = '\u005E';
-    const close = '\u003E';
-
-
-    const articleDiv = document.querySelector(".articles")
-    articleSpan.addEventListener('click', () => {
-        articleDiv.classList.toggle('article-open');
-        articleDiv.classList.toggle('.article-open');
+    articleSpan.addEventListener('click', (e) => {
+        articlediv.classList.toggle('.article-open');
+        articlediv.classList.toggle('article-open');
     });
 
-    articleDiv.appendChild(articleH2);
-    articleDiv.appendChild(articlepdatep);
-    articleDiv.appendChild(articlep1);
-    articleDiv.appendChild(articlep2);
-    articleDiv.appendChild(articlep3);
-    articleDiv.appendChild(articleSpan);
+    articlediv.appendChild(articleH2);
+    articlediv.appendChild(articlepdatep);
+    articlediv.appendChild(articlep1);
+    articlediv.appendChild(articlep2);
+    articlediv.appendChild(articlep3);
+    articlediv.appendChild(articleSpan);
+    MainarticleDiv.appendChild(articlediv)
 
-}
+    return articlediv;
+};
 
-componentCreator();
+const MainarticleDiv = document.querySelector(".articles")
+
+const dataSaved = data.map((data) => {
+    MainarticleDiv.appendChild(componentCreator(data["title"], data["date"], data["firstParagraph"], data["secondParagraph"], data["thirdParagraph"]));
+})
