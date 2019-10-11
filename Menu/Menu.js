@@ -36,7 +36,6 @@ let menuItems = [
 function menuComponents(menuItems) {
     const divMenu = document.createElement("div");
     const divUl = document.createElement("ul");
-    const divUli = document.createElement("li");
     const header = document.querySelector(".header")
     const headerImg = document.querySelector(".menu-button");
 
@@ -45,13 +44,14 @@ function menuComponents(menuItems) {
 
     header.appendChild(divMenu);
     divMenu.appendChild(divUl);
-    divUl.appendChild(divUli);
 
     for (let i = 0; i < menuItems.length; i++) {
         const iSaved = document.createElement("li");
-        iSaved.setAttribute('href', "index.html")
         iSaved.textContent = menuItems[i];
-        divUli.appendChild(iSaved);
+        divUl.appendChild(iSaved);
+
+        // *** when you get a chance, please try to add href to the li Elements***
+
     }
 
 
